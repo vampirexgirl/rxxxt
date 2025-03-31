@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry, Tanya</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            animation: fadeInBg 3s ease-in-out;
+        }
+
+        @keyframes fadeInBg {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #ffcccb;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .sorry {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            animation: floatUp 5s linear infinite;
+            opacity: 0.8;
+            border-radius: 50%;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .sorry {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heart-container"></div>
+    <div class="container">
+        <h2>Tanya, My Heart Feels Heavy...</h2>
+        <p class="sorry">I'm really sorry...</p>
+        <p>
+            Tanya, the last thing I ever want is to hurt you or make you feel unimportant. 
+            The truth is, I miss you. Not just talking, but feeling that warmth we share. 
+            The way you make me feel special, the way you brighten my days—it means more than I can express.
+        </p>
+        <p>
+            I know I messed up by not talking to you for the past two days. And if that made you feel like 
+            you don't matter to me, I am truly sorry. That was never my intention. You are someone who means 
+            the world to me, and I don't want even a moment of misunderstanding to take away what we have.
+        </p>
+        <p>
+            I respect you, your choices, and your boundaries. Nothing changes the fact that you are an incredible person,
+            and I want you to know that my feelings for you are real. I just hope you can forgive me and 
+            we can go back to the way things were—where we laughed, shared, and stayed close. 
+        </p>
+        <p>
+            I miss you, Tanya. And I'll do whatever it takes to make things right. 💖
+        </p>
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.getElementById("heart-container").appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
